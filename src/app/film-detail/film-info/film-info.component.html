@@ -1,0 +1,40 @@
+	<div *ngIf="succes">
+		<div class="cont">
+			<div class="col-md-5 " style="padding-left: 0px;">
+				<img src="https://image.tmdb.org/t/p/w780/{{items[12]}}" >
+			</div>
+				<div class="img"></div>
+				<div class="text-left col-md-6 itemContent">
+					<p class="name">{{items[9]}}</p>
+				<div class="item-info">
+				
+					<span class="genre">{{items[4][0].name}}</span>
+					<span class="date">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+		 				{{items[15].substring(0, 4)}}
+	 				</span>
+					<span class="min">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>{{items[17]}} min
+					</span>
+					<span style="margin-right: 10px">{{items[23]}}/10</span>
+					<span class="rate">
+					<star-rating-comp  [starType]="'svg'" [step]="0.5" [showHalfStars]="true" [rating]="items[23]" [numOfStars]="10"  [speed]="'fast'" [size]="'small'"  (onClick)="onClick($event)" [staticColor]="'ok'"></star-rating-comp>
+					</span>
+				</div>	
+				<p class="desc">{{items[10]}}</p>
+				
+				<span class=" text-right" >
+				<div class="form-group  text-center" *ngIf="this.lists">
+				<span class="select">Add to a List:</span>
+					<select name="" style="width: 200px;text-align: center;" class="" #t (change)="callType(t.value,items[6])">
+						<option disabled selected>Select a list</option>
+						<option *ngFor="let list of lists; let i = index" class="lists" value="{{lists[i].id}}">{{lists[i].name}}</option>
+					</select>
+					<div *ngIf="this.recordSucces">{{this.recordSucces}}</div>
+				</div>
+			</span>	
+		</div>	
+		<div class="bg" style="">
+		<img src="https://image.tmdb.org/t/p/w1920/{{items[1]}}" class="img-responsive " alt="">
+		</div>
+	</div>

@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="col-md-5">
+ 		<button (click)="this.addList=true">Add List</button>
+ 		<div class="form" *ngIf="this.addList">
+	 		<form [formGroup]="listsForm" (ngSubmit)="onSubmit()">
+				<div class="form-group">
+					<label for="name">Name</label> 
+					<input type="text"  formControlName="name" id="name" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="desc">Description</label>
+					<input type="text"  formControlName="desc" id="desc"  class="form-control">
+				</div>
+	 			<button class="btn btn-succes" type="submit">Save</button>
+	 			<button class="btn btn-danger" (click)="this.addList=false">Cancel</button>
+
+	 		</form>
+ 		</div>
+ 		<div class="lists">
+ 			<div *ngFor="let item of items; let i = index" class="items" >
+ 				<a class="item list-group-item clearfix" routerLinkActive="active" (click)="onItemSelect(this.items[i].id)">		
+					  <div class="pull-left">
+					    <h4 class="list-group-item-heading">{{this.items[i].name}}</h4>
+					    <p class="list-group-item-text">{{this.items[i].description}}</p>
+					  </div>
+					  <span class="pull-right">
+					    Film count:{{this.items[i].item_count}}
+					  </span>					
+ 				</a>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<div class="col-md-7">
+ 		<router-outlet></router-outlet>
+ 	</div>
+</div>

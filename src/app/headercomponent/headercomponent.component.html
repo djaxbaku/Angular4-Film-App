@@ -1,0 +1,69 @@
+
+<div class="menu" >
+    <div class=" left-menu">
+      <div class="scroll ">
+        <div class="brand">
+          <a [routerLink]="['/popular']">FILM APP</a>
+        </div>
+        <div class="navbar">
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink]="['/popular']">
+              <i class="fa fa-video-camera" aria-hidden="true"></i>
+                Popular
+              <span class="pull-right">123</span>
+            </a>
+          </li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+            <a [routerLink]="['/toprated']">
+              <i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                Top Rated
+              <span class="pull-right">26</span>
+            </a>
+          </li>
+          <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/watchlist"><i class="fa fa-list" aria-hidden="true"></i>Lists<span class="pull-right">21</span></a></li>
+          <li><a><i class="fa fa-clock-o" aria-hidden="true"></i>Rates</a></li>
+          <li class="genres" (click)="filmJenres()"><a><i class="fa fa-comments-o" aria-hidden="true" style=""></i>Genres<span style="" class="pull-right arrow"><i class="fa fa-caret-right" style="padding-right: 0px;" aria-hidden="true"></i></span></a></li>
+          <div style="padding-left: 20px" *ngIf="this.jenres!=undefined">
+            <li *ngFor="let jenre of jenres; let i = index ">
+              <a (click)="jenreCheck(this.jenres[i].id)">{{this.jenres[i].name}}</a>
+          </li>
+          </div>
+          
+        </div>
+        <div class="brand">
+          <a style="font-weight: lighter;font-size: 13px">UPCOMING MOVIES</a>
+        </div>
+        <div class="navbar" *ngFor="let upcomingFilm of upcomingFilms; let i = index ">
+
+          <li *ngIf="i<5" (click)="onFilmDetail(upcomingFilms[i].id)" class="upcomingFilms">
+            <a>
+              <img class="col-md-2" style="" src="https://image.tmdb.org/t/p/w300{{this.upcomingFilms[i].poster_path}}" alt="">
+              <span>
+                {{this.upcomingFilms[i].title}}
+              </span>
+            </a>
+          </li>
+
+        </div>
+
+      </div>
+    </div>
+    <div class=" horizontal-menu">
+      <div class="search ">
+          <input type="text" placeholder="Search movie..." (input)="onSearch(search.value)"  class="" #search placeholder="Search movie...">
+    
+         <i class="fa fa-search" style="font-size: 15px" (click)="onSearch(search.value)" aria-hidden="true"></i>
+      </div>
+      <ul class="">
+        <li >
+          <a routerLink='/signin'>Login</a>
+        </li>
+        <li ><a routerLink='/signup'>Register</a></li>
+        
+        <li ><a  routerLink="profile">Profile</a></li>
+        <li ><a (click)="onLogout()" routerLink="">Logout</a></li>
+      </ul>
+      <!-- <i class="fa fa-th fa-2x" style="" aria-hidden="true"></i>
+      <i class="fa fa-user fa-2x" style="font-size:17px;margin-right:60px;" aria-hidden="true"></i> -->
+    </div>
+</div>

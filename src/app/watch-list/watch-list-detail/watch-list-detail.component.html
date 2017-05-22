@@ -1,0 +1,25 @@
+<div class="" *ngIf="this.items">
+	<div *ngFor="let item of items; let i = index" class="">
+	 	<div class="cont" (click)="onFilmDetail(items[i].id)" >
+		 	<div class="col-md-6 text-center">
+		 			<div class="col-md-6">
+			            <div class="title">{{items[i].title}}</div>
+			            <div class="title_info_cont">               
+			               	<div class="title_info"> {{items[i].release_date}}</div>
+			            </div>
+			            	<div class="synopsis fadein"></div>
+			            	<div class="votes">{{items[i].vote_average}}/10
+				            
+						</div>
+			            
+						
+		            </div>
+		            <div class="col-md-4">
+		            	<img style="width: 150px;float: left;"  src="https://image.tmdb.org/t/p/w300/{{items[i].poster_path}}" alt=""> 
+		            </div>
+		            
+		    </div>
+			
+		</div>
+	</div>
+</div>

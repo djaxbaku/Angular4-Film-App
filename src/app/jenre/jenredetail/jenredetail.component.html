@@ -1,0 +1,22 @@
+<div class="">
+	 <div *ngFor="let item of items; let i = index" class="">
+	 <h6></h6>
+	 	<div class="cont">
+		 	<div class="col-md-6 text-center">
+		 			<div class="col-md-6">
+			            <div class="title">{{items[i].original_title}}</div>
+			            <div class="title_info_cont">               
+			               <div class="title_info"> {{items[i].release_date}}</div>
+
+			            </div>
+			            <div class="synopsis fadein">{{items[i].overview}}</div>
+		            </div>
+		            <div class="col-md-4">
+		            	<img style="width: 150px;float: left;"  src="https://image.tmdb.org/t/p/w300/{{items[i].poster_path}}" alt=""> 
+		            </div>
+		            
+		    </div>
+			
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="bg">
+	<div class=""*ngIf="success!=false">
+
+
+		 <div  *ngFor="let item of items; let i = index" class="">
+		 	<div class="allCont">
+			 	<div class=" cont pull-left" (click)="onFilmDetail(items[i].id)" >
+				 	<div class="text-center">
+				            <div class="">
+					            <div class="title">{{items[i].title}}
+						            <div class="title_info_cont">               
+						               	<div class="releaseDate"> {{items[i].release_date.substring(0, 4)}}</div>
+						            </div>
+						            <div class="rating ">
+							            <star-rating-comp  [starType]="'svg'" [step]="0.5" [showHalfStars]="true" [rating]="items[i].vote_average" [numOfStars]="10" [size]="'small'" [speed]="'fast'"  [readOnly]="true" [staticColor]="'negative'"></star-rating-comp>
+						            </div>	
+						        </div>   
+				            	<img class="img-responsive" src="https://image.tmdb.org/t/p/w300/{{items[i].poster_path}}" alt=""> 
+				            </div>
+				            
+				    </div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+       $(window).unbind('scroll');
+       alert("near bottom!");
+   }
+});
+</script>
